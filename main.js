@@ -42,8 +42,6 @@ Deck.prototype.shuffle = function(){
 	return this
 }
 
-console.log(myDeck.shuffle())
-
 Deck.prototype.dealRandomCard = function(){
 	//ternary operator ahead!
 	return (this.cards.length > 0) ? this.cards.pop() : null;
@@ -61,9 +59,30 @@ function Player(name){
 }
 
 Player.prototype.takeCard = function(){
-
+	this.hand.push(deck.dealRandomCard());
+	return this;
 }
 
-Player.prototype.discard = function(){
-	
+Player.prototype.discard = function(cardIdx){
+	if (this.hand.length > cardIdx){
+		this.hand.splice(cardIdx, 1);
+	}
+	return this;
 }
+
+var charlie = new Player('charlie');
+var deck = new Deck()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
