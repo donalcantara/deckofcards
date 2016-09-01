@@ -27,8 +27,22 @@ var myDeck = new Deck(); //makes a full deck of 52 cards (one value for each sui
 console.log(myDeck);
 
 Deck.prototype.shuffle = function(){
+	var unshuffledEdge = this.cards.length,
+		cardToShuffleIdx,
+		temp;
 
+	while(unshuffledEdge>0){
+		cardToShuffleIdx = Math.floor(Math.random()*unshuffledEdge);
+		unshuffledEdge -= 1;
+
+		temp = this.cards[cardToShuffleIdx]
+		this.cards[cardToShuffleIdx] = this.cards[unshuffledEdge];
+		this.cards[unshuffledEdge] = temp;
+	}
+	return this
 }
+
+console.log(myDeck.shuffle())
 Deck.prototype.reset = function(){
 	
 }
