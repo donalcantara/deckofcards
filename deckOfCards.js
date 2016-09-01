@@ -43,11 +43,11 @@ Deck.prototype.shuffle = function(){
 }
 
 console.log(myDeck.shuffle())
-Deck.prototype.reset = function(){
-	
-}
+
 Deck.prototype.dealRandomCard = function(){
-	
+	//ternary operator ahead!
+	return (this.cards.length > 0) ? this.cards.pop() : null;
+	//basically means return (if the length of the cards is greater than 0, pop the last card of the array. If not, then return null.)
 }
 
 function Card(value, suit){
